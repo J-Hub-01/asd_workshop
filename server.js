@@ -2,5 +2,5 @@ const app = require('./app');
 const port = Number(process.env.PORT) || 3000;
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`ASD Workshop API listening on port ${port}`);
 });
