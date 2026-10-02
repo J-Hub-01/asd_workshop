@@ -5,6 +5,8 @@ const app = express();
 
 app.use(express.json({ limit: '100kb' }));
 
+app.disable('x-powered-by');
+
 app.get('/health', (req, res) => {
     res.json({ status: 'ok' });
 });
