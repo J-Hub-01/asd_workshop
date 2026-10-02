@@ -9,7 +9,7 @@ npm install
 npm start
 ```
 
-The API listens on port 3000 by default. Available product endpoints are:
+The API listens on port 3000 by default. Set the `PORT` environment variable to use another port. Request bodies are limited to 100 KB. Unknown routes return a JSON 404 response. Available product endpoints are:
 
 - `GET /products`
 - `GET /products/:id`
