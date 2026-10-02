@@ -2,11 +2,12 @@ const productService = require('../services/productService');
 const { setCache,invalidateCache} = require('../middleware/cache');
 
 function sendError(res, err) {
-    const status = err.statusCode || 500;
+    const status = err.statusCode || (err.type === 'entity.too.large' ? 413 : 500);
     if (status === 500) {
         console.error(err);
     }
-    return res.status(status).json({ message: err.message || 'Server error' });
+    const message = status === 413 ? 'Request body is too large' : (err.message || 'Server error');
+    return res.status(status).json({ message });
 }
 
 async function getProducts(req, res) {
