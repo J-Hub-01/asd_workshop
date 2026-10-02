@@ -6,7 +6,8 @@ function validateProduct(data) {
         error.statusCode = 400;
         throw error;
     }
-    if (!Number.isFinite(Number(data.price)) || Number(data.price) < 0) {
+    if (data.price === '' || data.price === null || data.price === undefined ||
+        !Number.isFinite(Number(data.price)) || Number(data.price) < 0) {
         const error = new Error('Product price must be a non-negative number');
         error.statusCode = 400;
         throw error;
